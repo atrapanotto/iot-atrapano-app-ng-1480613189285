@@ -1,0 +1,15 @@
+applications:
+- path: .
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: iot-atrapano-app-ng
+  host: iot-atrapano-app-ng
+  disk_quota: 1024M
+  services:
+  - iot-atrapano-app-ng-cloudantNoSQLDB
+  - iot-atrapano-app-ng-iotf-service
+  env:
+    NODE_RED_USERNAME: atrapanotto
+    NODE_RED_PASSWORD: a29f077c24a5586c049cf5b10fc
+  command: node --max-old-space-size=384 node_modules/node-red/red.js --settings ./bluemix-settings.js -v
